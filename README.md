@@ -115,7 +115,8 @@ public async Task<PaginaResult<JugadorDto>> GetPaginadoAsync(int page, Cancellat
 - `Select(ToDto)` → convierte cada `Jugador` (entidad interna) en `JugadorDto` (lo que se expone hacia afuera).
 - `ToList()` → materializa el resultado en una lista concreta.
 - `return new PaginaResult<JugadorDto>(page, pageSize, totalItems, totalPages, items)` → arma el objeto de respuesta. **El orden de los argumentos tiene que coincidir con el orden de los parámetros del record** (se conectan por posición, no por nombre).
-- Math.Ceiling((double)totalItems / pageSize) cuando la division no da exacta sino trunca al numero entero
+-
+- var totalPages = (int)Math.Ceiling((double)totalItems / pageSize) cuando la division no da exacta sino trunca al numero entero
 
 ---
 
